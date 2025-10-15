@@ -3,492 +3,943 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul Mahata - Software Developer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Rahul Mahata - Senior Software Developer & Database Architect">
+    <title>Rahul Mahata - Elite Software Developer Portfolio</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root {
-            --primary-navy: #0A1A3B;
-            --deep-indigo: #1E2A78;
-            --accent-purple: #6C63FF;
-            --accent-gold: #E6C67C;
-            --dark-background: #0D1117;
-            --card-dark: #161B22;
-            --text-light: #F0F6FC;
-            --text-secondary: #ADBDC8;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-background);
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
-
-        /* Diamond Pattern Background */
-        .diamond-pattern {
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(108, 99, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(230, 198, 124, 0.1) 0%, transparent 50%),
-                linear-gradient(45deg, transparent 40%, rgba(108, 99, 255, 0.05) 50%, transparent 60%),
-                linear-gradient(-45deg, transparent 40%, rgba(230, 198, 124, 0.05) 50%, transparent 60%);
-            background-size: 100px 100px, 100px 100px, 50px 50px, 50px 50px;
-            background-position: 0 0, 50px 50px, 0 0, 25px 25px;
-        }
-
-        /* Glass Morphism */
-        .glass {
-            background: rgba(22, 27, 34, 0.4);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(108, 99, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .glass-card {
-            background: rgba(22, 27, 34, 0.6);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(108, 99, 255, 0.15);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Premium Gradients */
-        .gradient-primary {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--deep-indigo) 100%);
-        }
-
-        .gradient-accent {
-            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-gold) 100%);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Premium Button */
-        .premium-btn {
-            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-gold) 100%);
-            border: none;
-            padding: 12px 32px;
-            border-radius: 12px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .premium-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
-        }
-
-        .premium-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .premium-btn:hover::before {
-            left: 100%;
-        }
-
-        /* Icon Containers */
-        .icon-container {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-gold) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .icon-container:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
-        }
-
-        /* Skill Progress */
-        .skill-progress {
-            height: 8px;
-            background: rgba(108, 99, 255, 0.2);
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .skill-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-purple) 0%, var(--accent-gold) 100%);
-            border-radius: 4px;
-            transition: width 2s ease-in-out;
-            box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .diamond-pattern {
-                background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
-            }
-        }
-    </style>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="diamond-pattern">
-    <!-- Navigation -->
-    <nav class="glass fixed w-full top-0 z-50 rounded-b-2xl">
-        <div class="max-w-7xl mx-auto px-6 py-4">
+<body class="cosmic-bg">
+    
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="logo-animation">
+                <div class="logo-circle"></div>
+                <span class="logo-text gradient-text">&lt;RM/&gt;</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loading-text" id="loadingText">Loading Portfolio...</p>
+            <span class="loading-percentage" id="loadingPercentage">0%</span>
+        </div>
+    </div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <!-- GRID PATTERN -->
+    <div class="grid-pattern"></div>
+    
+    <!-- PARTICLE CANVAS -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+    <!-- THEME SWITCHER -->
+    <div class="theme-switcher" id="themeSwitcher">
+        <button class="theme-btn active" data-theme="cyan" style="background: #00d9ff;" title="Cyan Theme"></button>
+        <button class="theme-btn" data-theme="purple" style="background: #b66dff;" title="Purple Theme"></button>
+        <button class="theme-btn" data-theme="green" style="background: #00ff88;" title="Green Theme"></button>
+        <button class="theme-btn" data-theme="orange" style="background: #ff6b35;" title="Orange Theme"></button>
+    </div>
+
+    <!-- SCROLL PROGRESS -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- TOAST CONTAINER -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="ultra-glass fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold gradient-text font-['Playfair_Display']">Rahul Mahata</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-300 hover:text-white transition-colors duration-300">Home</a>
-                    <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
-                    <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
-                    <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+                <div class="logo-container">
+                    <a href="#home" class="text-3xl font-bold gradient-text font-['Syne'] logo-link">
+                        <span class="text-4xl code-bracket">&lt;</span>
+                        <span class="logo-text-main">RM</span>
+                        <span class="text-4xl code-bracket">/&gt;</span>
+                    </a>
                 </div>
-                <button class="premium-btn">Hire Me</button>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active text-white hover:text-cyan-400 transition-colors duration-300 font-semibold">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <a href="#about" class="nav-link text-white hover:text-cyan-400 transition-colors duration-300 font-semibold">
+                        <i class="fas fa-user mr-2"></i>About
+                    </a>
+                    <a href="#skills" class="nav-link text-white hover:text-cyan-400 transition-colors duration-300 font-semibold">
+                        <i class="fas fa-code mr-2"></i>Skills
+                    </a>
+                    <a href="#projects" class="nav-link text-white hover:text-cyan-400 transition-colors duration-300 font-semibold">
+                        <i class="fas fa-folder-open mr-2"></i>Projects
+                    </a>
+                    <a href="#contact" class="nav-link text-white hover:text-cyan-400 transition-colors duration-300 font-semibold">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+                </div>
+
+                <div class="hidden md:flex gap-3">
+                    <button class="futuristic-btn-outline" onclick="downloadCV()">
+                        <i class="fas fa-download mr-2"></i>CV
+                    </button>
+                    <button class="futuristic-btn" onclick="scrollToContact()">
+                        Hire Me
+                    </button>
+                </div>
+
+                <button id="mobileMenuBtn" class="md:hidden text-3xl hamburger-menu" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button id="closeMobileMenu" class="close-btn" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-menu-content">
+            <a href="#home" class="mobile-menu-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#about" class="mobile-menu-link">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+            </a>
+            <a href="#skills" class="mobile-menu-link">
+                <i class="fas fa-code"></i>
+                <span>Skills</span>
+            </a>
+            <a href="#projects" class="mobile-menu-link">
+                <i class="fas fa-folder-open"></i>
+                <span>Projects</span>
+            </a>
+            <a href="#contact" class="mobile-menu-link">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+            <div class="mobile-menu-footer">
+                <button class="futuristic-btn w-full" onclick="downloadCV()">
+                    <i class="fas fa-download mr-2"></i>Download CV
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative z-10 section">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="fade-in-up">
-                <div class="w-32 h-32 mx-auto mb-8 rounded-full gradient-primary flex items-center justify-center text-6xl font-bold floating">
-                    RM
+            <div class="hero-content">
+                <!-- AVATAR WITH PHOTO SUPPORT -->
+                <div class="avatar-wrapper" data-aos="zoom-in">
+                    <div class="avatar-border"></div>
+                    <div class="avatar-container">
+                        <div class="avatar-gradient">
+                            <div class="avatar-inner avatar-photo">
+                                <!-- 🔥 REPLACE THIS URL WITH YOUR PHOTO URL 🔥 -->
+                                <img src="https://www.canva.com/design/DAG1044U8HU/Qf4Y7Z6V25Exz8Dcvt-3fg/edit?utm_content=DAG1044U8HU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
+                                     alt="Rahul Mahata" 
+                                     class="profile-photo"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <!-- Fallback initials if image fails -->
+                                <span class="avatar-text gradient-text fallback-initials">RM</span>
+                            </div>
+                        </div>
+                        <div class="status-badge">
+                            <i class="fas fa-circle pulse-dot"></i>
+                            <span>Available</span>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 font-['Playfair_Display']">
-                    <span class="gradient-text">Rahul Mahata</span>
+
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+                    <span class="greeting">Hello, I'm</span>
+                    <span class="gradient-text name">Rahul Mahata</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-4">Software Developer & Database Specialist</p>
-                <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-                    Crafting innovative solutions with cutting-edge technology and robust database architectures
+                
+                <div class="typing-wrapper" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-terminal terminal-icon"></i>
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="typing-cursor">|</span>
+                </div>
+
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="600">
+                    Architecting <span class="highlight-cyan">scalable solutions</span> with 
+                    cutting-edge technology and 
+                    <span class="highlight-purple">robust database systems</span>
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="premium-btn">View My Work</button>
-                    <button class="glass-card px-8 py-3 rounded-xl text-white hover:bg-opacity-80 transition-all duration-300">
-                        Download CV
+
+                <div class="hero-cta" data-aos="fade-up" data-aos-delay="800">
+                    <button class="futuristic-btn ripple-effect" onclick="scrollToProjects()">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Explore My Work
+                    </button>
+                    <button class="futuristic-btn-outline ripple-effect" onclick="scrollToContact()">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Let's Connect
                     </button>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 font-['Playfair_Display'] gradient-text">About Me</h2>
-                <p class="text-gray-400 text-lg">Passionate about creating exceptional digital experiences</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="glass-card p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold mb-6 gradient-text">My Journey</h3>
-                    <p class="text-gray-300 leading-relaxed mb-6">
-                        As a dedicated Software Developer with expertise in database management, I bring a unique blend of 
-                        technical proficiency and creative problem-solving to every project. My passion lies in building 
-                        scalable applications and optimizing database performance.
-                    </p>
-                    <p class="text-gray-300 leading-relaxed">
-                        I specialize in modern web technologies and database architectures, ensuring that every solution 
-                        I deliver is not only functional but also maintainable and future-ready.
-                    </p>
+                <div class="hero-social" data-aos="fade-up" data-aos-delay="1000">
+                    <a href="https://github.com/Rahul3460/Portfolio" target="_blank" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://stackoverflow.com" target="_blank" class="social-icon" aria-label="Stack Overflow">
+                        <i class="fab fa-stack-overflow"></i>
+                    </a>
                 </div>
-                
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="glass-card p-6 rounded-2xl text-center">
-                        <div class="icon-container mx-auto mb-4">
-                            <span class="text-2xl">💻</span>
-                        </div>
-                        <h4 class="font-bold text-lg mb-2">Software Development</h4>
-                        <p class="text-gray-400 text-sm">Full-stack solutions</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl text-center">
-                        <div class="icon-container mx-auto mb-4">
-                            <span class="text-2xl">🗄️</span>
-                        </div>
-                        <h4 class="font-bold text-lg mb-2">Database Design</h4>
-                        <p class="text-gray-400 text-sm">Optimized architectures</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl text-center">
-                        <div class="icon-container mx-auto mb-4">
-                            <span class="text-2xl">⚡</span>
-                        </div>
-                        <h4 class="font-bold text-lg mb-2">Performance</h4>
-                        <p class="text-gray-400 text-sm">Lightning fast apps</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl text-center">
-                        <div class="icon-container mx-auto mb-4">
-                            <span class="text-2xl">🚀</span>
-                        </div>
-                        <h4 class="font-bold text-lg mb-2">Innovation</h4>
-                        <p class="text-gray-400 text-sm">Cutting-edge tech</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 font-['Playfair_Display'] gradient-text">Skills & Expertise</h2>
-                <p class="text-gray-400 text-lg">Technologies I work with</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass-card p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold mb-8 gradient-text">Programming Languages</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">JavaScript</span>
-                                <span class="text-gray-400">90%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" style="width: 90%"></div>
-                            </div>
+                <div class="stats-grid" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Python</span>
-                                <span class="text-gray-400">85%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" style="width: 85%"></div>
-                            </div>
+                        <div class="stat-number" data-count="50">0</div>
+                        <p class="stat-label">Projects Done</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Java</span>
-                                <span class="text-gray-400">80%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" style="width: 80%"></div>
-                            </div>
+                        <div class="stat-number" data-count="5">0</div>
+                        <p class="stat-label">Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-smile"></i>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">C++</span>
-                                <span class="text-gray-400">75%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" style="width: 75%"></div>
-                            </div>
+                        <div class="stat-number" data-count="30">0</div>
+                        <p class="stat-label">Happy Clients</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
                         </div>
+                        <div class="stat-number" data-count="15">0</div>
+                        <p class="stat-label">Awards Won</p>
                     </div>
                 </div>
-                
-                <div class="glass-card p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold mb-8 gradient-text">Database & Tools</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">MySQL</span>
-                                <span class="text-gray-400">95%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">PostgreSQL</span>
-                                <span class="text-gray-400">90%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">MongoDB</span>
-                                <span class="text-gray-400">85%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Redis</span>
-                                <span class="text-gray-400">80%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-fill" style="width: 80%"></div>
-                            </div>
-                        </div>
+
+                <div class="badges-container" data-aos="fade-up" data-aos-delay="1400">
+                    <div class="achievement-badge">
+                        <i class="fas fa-certificate"></i>
+                        <span>AWS Certified</span>
                     </div>
+                    <div class="achievement-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Top Rated Developer</span>
+                    </div>
+                    <div class="achievement-badge">
+                        <i class="fas fa-trophy"></i>
+                        <span>Award Winner</span>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1600">
+                    <span>Scroll Down</span>
+                    <i class="fas fa-chevron-down bounce"></i>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20">
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-padding section">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 font-['Playfair_Display'] gradient-text">Featured Projects</h2>
-                <p class="text-gray-400 text-lg">Some of my recent work</p>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Get To Know Me</span>
+                <h2 class="section-title">
+                    <i class="fas fa-user-circle"></i>
+                    About Me
+                </h2>
+                <p class="section-subtitle">Crafting digital excellence with passion and precision</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300">
-                    <div class="gradient-primary h-48 flex items-center justify-center text-6xl">
-                        🚀
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3 gradient-text">E-Commerce Platform</h3>
-                        <p class="text-gray-400 mb-4">Full-stack e-commerce solution with advanced database optimization</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-purple-600 bg-opacity-20 text-purple-300 rounded-full text-sm">React</span>
-                            <span class="px-3 py-1 bg-purple-600 bg-opacity-20 text-purple-300 rounded-full text-sm">Node.js</span>
-                            <span class="px-3 py-1 bg-purple-600 bg-opacity-20 text-purple-300 rounded-full text-sm">MySQL</span>
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div data-aos="fade-right">
+                    <div class="about-card ultra-glass-card">
+                        <div class="card-header">
+                            <i class="fas fa-rocket"></i>
+                            <h3>My Journey</h3>
                         </div>
-                        <button class="premium-btn w-full">View Project</button>
+                        
+                        <div class="journey-content">
+                            <p class="journey-text">
+                                As a <span class="highlight-cyan">Senior Software Developer</span> with deep expertise in 
+                                <span class="highlight-purple">database architecture</span>, I bring a unique fusion of 
+                                technical mastery and innovative problem-solving to every challenge.
+                            </p>
+                            <p class="journey-text">
+                                My passion drives me to build <span class="highlight-cyan">highly scalable applications</span> 
+                                and optimize database performance to handle millions of transactions seamlessly.
+                            </p>
+                            <p class="journey-text">
+                                I specialize in modern web technologies, microservices architecture, and advanced database design—ensuring 
+                                every solution is <span class="highlight-purple">future-ready and maintainable</span>.
+                            </p>
+                        </div>
+
+                        
+                            <h4 class="philosophy-title">Philosophy</h4>
+                            <p class="philosophy-text">
+                                "Code is poetry. Databases are architecture. Together, they create symphonies of innovation."
+                            </p>
+                        </div>
+
+                        <button class="download-cv-btn" onclick="downloadCV()">
+                            <i class="fas fa-download"></i>
+                            <span>Download My CV</span>
+                            <div class="btn-shine"></div>
+                        </button>
                     </div>
                 </div>
                 
-                <div class="glass-card rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300">
-                    <div class="gradient-primary h-48 flex items-center justify-center text-6xl">
-                        📊
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3 gradient-text">Analytics Dashboard</h3>
-                        <p class="text-gray-400 mb-4">Real-time data visualization with optimized database queries</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-purple-600 bg-opacity-20 text-purple-300 rounded-full text-sm">Vue.js</span>
-                            <span class="px-3 py-1 bg-purple-600 bg-opacity-20 text-purple-300 rounded-full text-sm">Python</span>
-                            <span class="px-3 py-1 bg-purple-600 bg-opacity-20 text-purple-300 rounded-full text-sm">PostgreSQL</span>
+                <div class="expertise-grid" data-aos="fade-left">
+                    <div class="expertise-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="expertise-icon">
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <button class="premium-btn w-full">View Project</button>
-                    </div>
-                </div>
-                
-                <div class="glass-card rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300">
-                    <div class="gradient-primary h-48 flex items-center justify-center text-6xl">
-                        🔐
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3 gradient-text">Security Management</h3>
-                        <p class="text-gray-400 mb-4">Enterprise security system with encrypted database storage</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-purple-600 bg-opacity-20 text-purple-300 rounded-full text-sm">Java</span>
-                            <span class="px-3 py-1 bg-purple-600 bg-opacity-20 text-purple-300 rounded-full text-sm">Spring</span>
-                            <span class="px-3 py-1 bg-purple-600 bg-opacity-20 text-purple-300 rounded-full text-sm">MongoDB</span>
+                        <h4>Full-Stack Development</h4>
+                        <p>End-to-end solutions with modern frameworks</p>
+                        <div class="expertise-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>Vue.js</span>
                         </div>
-                        <button class="premium-btn w-full">View Project</button>
+                    </div>
+
+                    <div class="expertise-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="expertise-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Database Architecture</h4>
+                        <p>Optimized structures & query performance</p>
+                        <div class="expertise-tech">
+                            <span>MySQL</span>
+                            <span>PostgreSQL</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="expertise-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Performance</h4>
+                        <p>Lightning-fast, scalable applications</p>
+                        <div class="expertise-tech">
+                            <span>Redis</span>
+                            <span>CDN</span>
+                            <span>Caching</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="expertise-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p>Cutting-edge tech & best practices</p>
+                        <div class="expertise-tech">
+                            <span>AI/ML</span>
+                            <span>Cloud</span>
+                            <span>DevOps</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="experti<div class="philosophy-section">
+                            <div class="philosophy-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>se-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4>Cloud Architecture</h4>
+                        <p>AWS, Azure, GCP deployment</p>
+                        <div class="expertise-tech">
+                            <span>AWS</span>
+                            <span>Docker</span>
+                            <span>Kubernetes</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="expertise-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Security</h4>
+                        <p>Enterprise-grade protection</p>
+                        <div class="expertise-tech">
+                            <span>OAuth</span>
+                            <span>JWT</span>
+                            <span>Encryption</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section-padding section">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 font-['Playfair_Display'] gradient-text">Get In Touch</h2>
-                <p class="text-gray-400 text-lg">Let's discuss your next project</p>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">What I Master</span>
+                <h2 class="section-title">
+                    <i class="fas fa-code-branch"></i>
+                    Skills & Expertise
+                </h2>
+                <p class="section-subtitle">Mastering the art of modern development</p>
             </div>
             
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="glass-card p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold mb-6 gradient-text">Contact Information</h3>
-                        <div class="space-y-6">
-                            <div class="flex items-center space-x-4">
-                                <div class="icon-container">
-                                    <span class="text-xl">📧</span>
+            <div class="skills-tabs" data-aos="fade-up">
+                <button class="skill-tab active" data-tab="languages">
+                    <i class="fas fa-code"></i>Languages
+                </button>
+                <button class="skill-tab" data-tab="database">
+                    <i class="fas fa-database"></i>Database
+                </button>
+                <button class="skill-tab" data-tab="frontend">
+                    <i class="fas fa-palette"></i>Frontend
+                </button>
+                <button class="skill-tab" data-tab="backend">
+                    <i class="fas fa-server"></i>Backend
+                </button>
+                <button class="skill-tab" data-tab="tools">
+                    <i class="fas fa-tools"></i>Tools
+                </button>
+            </div>
+
+            <div class="skills-content">
+                <!-- Languages Tab -->
+                <div class="skill-panel active" data-panel="languages">
+                    <div class="skills-grid" data-aos="fade-up">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fab fa-js skill-icon" style="color: #f7df1e;"></i>
+                                    <span class="skill-name">JavaScript / TypeScript</span>
+                                </div>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="95"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fab fa-python skill-icon" style="color: #3776ab;"></i>
+                                    <span class="skill-name">Python</span>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="90"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fab fa-java skill-icon" style="color: #007396;"></i>
+                                    <span class="skill-name">Java</span>
+                                </div>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="85"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fas fa-code skill-icon" style="color: #00599c;"></i>
+                                    <span class="skill-name">C++ / C#</span>
+                                </div>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Tab -->
+                <div class="skill-panel" data-panel="database">
+                    <div class="skills-grid" data-aos="fade-up">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fas fa-database skill-icon" style="color: #00758f;"></i>
+                                    <span class="skill-name">MySQL / MariaDB</span>
+                                </div>
+                                <span class="skill-percentage">98%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="98"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fas fa-database skill-icon" style="color: #336791;"></i>
+                                    <span class="skill-name">PostgreSQL</span>
+                                </div>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="95"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fas fa-leaf skill-icon" style="color: #47a248;"></i>
+                                    <span class="skill-name">MongoDB</span>
+                                </div>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="92"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fas fa-fire skill-icon" style="color: #dc382d;"></i>
+                                    <span class="skill-name">Redis</span>
+                                </div>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frontend Tab -->
+                <div class="skill-panel" data-panel="frontend">
+                    <div class="skills-grid" data-aos="fade-up">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fab fa-react skill-icon" style="color: #61dafb;"></i>
+                                    <span class="skill-name">React / Next.js</span>
+                                </div>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="95"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fab fa-vuejs skill-icon" style="color: #42b883;"></i>
+                                    <span class="skill-name">Vue.js / Nuxt.js</span>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="90"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fab fa-html5 skill-icon" style="color: #e34f26;"></i>
+                                    <span class="skill-name">HTML5 / CSS3</span>
+                                </div>
+                                <span class="skill-percentage">98%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="98"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Tab -->
+                <div class="skill-panel" data-panel="backend">
+                    <div class="skills-grid" data-aos="fade-up">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fab fa-node-js skill-icon" style="color: #339933;"></i>
+                                    <span class="skill-name">Node.js / Express</span>
+                                </div>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="95"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <div class="skill-info">
+                                    <i class="fab fa-python skill-icon" style="color: #3776ab;"></i>
+                                    <span class="skill-name">Django / Flask</span>
+                                </div>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-bar" data-width="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Tab -->
+                <div class="skill-panel" data-panel="tools">
+                    <div class="tech-tools-grid" data-aos="fade-up">
+                        <div class="tool-card">
+                            <i class="fab fa-docker" style="color: #2496ed;"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fas fa-dharmachakra" style="color: #326ce5;"></i>
+                            <span>Kubernetes</span>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fab fa-git-alt" style="color: #f05032;"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fab fa-github" style="color: #ffffff;"></i>
+                            <span>GitHub</span>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fab fa-aws" style="color: #ff9900;"></i>
+                            <span>AWS</span>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fab fa-linux" style="color: #fcc624;"></i>
+                            <span>Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section-padding section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">My Work</span>
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Featured Projects
+                </h2>
+                <p class="section-subtitle">Showcasing innovation and technical excellence</p>
+            </div>
+
+            <div class="mb-12 flex flex-wrap gap-4 justify-center" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th mr-2"></i>All Projects
+                </button>
+                <button class="filter-btn" data-filter="web">
+                    <i class="fas fa-globe mr-2"></i>Web Apps
+                </button>
+                <button class="filter-btn" data-filter="mobile">
+                    <i class="fas fa-mobile-alt mr-2"></i>Mobile
+                </button>
+                <button class="filter-btn" data-filter="ai">
+                    <i class="fas fa-brain mr-2"></i>AI/ML
+                </button>
+            </div>
+            
+            <div id="projectsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card ultra-glass-card" data-category="web" data-name="E-Commerce Platform" data-aos="fade-up">
+                    <div class="project-image flex items-center justify-center relative">
+                        <i class="fas fa-shopping-cart text-8xl z-10" style="color: var(--accent-primary)"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold gradient-text font-['Syne'] mb-4">E-Commerce Platform</h3>
+                        <p class="text-white mb-6 leading-relaxed font-medium">
+                            Enterprise-grade e-commerce solution handling 100K+ daily transactions.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <button class="futuristic-btn w-full" onclick="openProjectModal(1)">
+                            <i class="fas fa-eye mr-2"></i>View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card ultra-glass-card" data-category="web" data-name="Analytics Dashboard" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image flex items-center justify-center relative">
+                        <i class="fas fa-chart-line text-8xl z-10" style="color: var(--accent-secondary)"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold gradient-text font-['Syne'] mb-4">Analytics Dashboard</h3>
+                        <p class="text-white mb-6 leading-relaxed font-medium">
+                            Real-time data visualization platform processing millions of data points.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                        <button class="futuristic-btn w-full" onclick="openProjectModal(2)">
+                            <i class="fas fa-eye mr-2"></i>View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card ultra-glass-card" data-category="mobile" data-name="Mobile Banking App" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image flex items-center justify-center relative">
+                        <i class="fas fa-mobile-alt text-8xl z-10" style="color: var(--accent-tertiary)"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold gradient-text font-['Syne'] mb-4">Mobile Banking App</h3>
+                        <p class="text-white mb-6 leading-relaxed font-medium">
+                            Cross-platform banking solution with biometric authentication.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <button class="futuristic-btn w-full" onclick="openProjectModal(3)">
+                            <i class="fas fa-eye mr-2"></i>View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card ultra-glass-card" data-category="ai" data-name="AI Recommendation Engine" data-aos="fade-up">
+                    <div class="project-image flex items-center justify-center relative">
+                        <i class="fas fa-brain text-8xl z-10" style="color: var(--accent-primary)"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold gradient-text font-['Syne'] mb-4">AI Recommendation Engine</h3>
+                        <p class="text-white mb-6 leading-relaxed font-medium">
+                            ML-powered recommendation system for personalized content delivery.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <button class="futuristic-btn w-full" onclick="openProjectModal(4)">
+                            <i class="fas fa-eye mr-2"></i>View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card ultra-glass-card" data-category="web" data-name="Security Management" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image flex items-center justify-center relative">
+                        <i class="fas fa-shield-alt text-8xl z-10" style="color: var(--accent-green)"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold gradient-text font-['Syne'] mb-4">Security Management</h3>
+                        <p class="text-white mb-6 leading-relaxed font-medium">
+                            Enterprise security system with AES-256 encryption and JWT auth.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tag">Java</span>
+                            <span class="tag">Spring</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <button class="futuristic-btn w-full" onclick="openProjectModal(5)">
+                            <i class="fas fa-eye mr-2"></i>View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card ultra-glass-card" data-category="web" data-name="Cloud Storage Platform" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image flex items-center justify-center relative">
+                        <i class="fas fa-cloud text-8xl z-10" style="color: var(--accent-primary)"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold gradient-text font-['Syne'] mb-4">Cloud Storage Platform</h3>
+                        <p class="text-white mb-6 leading-relaxed font-medium">
+                            Distributed storage system with end-to-end encryption.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tag">Go</span>
+                            <span class="tag">React</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                        <button class="futuristic-btn w-full" onclick="openProjectModal(6)">
+                            <i class="fas fa-eye mr-2"></i>View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16" data-aos="fade-up">
+                <button class="futuristic-btn-outline text-lg px-12">
+                    <i class="fab fa-github mr-2"></i>View All on GitHub
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Let's Talk</span>
+                <h2 class="section-title">
+                    <i class="fas fa-paper-plane"></i>
+                    Get In Touch
+                </h2>
+                <p class="section-subtitle">Let's build something amazing together</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
+                <div class="lg:col-span-2" data-aos="fade-right">
+                    <div class="ultra-glass-card p-10 rounded-3xl h-full">
+                        <h3 class="text-3xl font-bold mb-8 gradient-text font-['Syne']">
+                            Contact Info
+                        </h3>
+                        
+                        <div class="space-y-8">
+                            <div class="flex items-start space-x-5">
+                                <div class="icon-3d flex-shrink-0">
+                                    <i class="fas fa-envelope" style="color: var(--accent-primary)"></i>
                                 </div>
                                 <div>
-                                    <p class="font-medium">Email</p>
-                                    <p class="text-gray-400">rahulmahata3460@gmail.com</p>
+                                    <p class="font-bold text-lg mb-1 text-white">Email</p>
+                                    <a href="mailto:rahulmahata3460@gmail.com" class="text-white hover:text-cyan-400 transition-colors font-medium">
+                                        rahulmahata3460@gmail.com
+                                    </a>
                                 </div>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="icon-container">
-                                    <span class="text-xl">💼</span>
+
+                            <div class="flex items-start space-x-5">
+                                <div class="icon-3d flex-shrink-0">
+                                    <i class="fas fa-briefcase" style="color: var(--accent-secondary)"></i>
                                 </div>
                                 <div>
-                                    <p class="font-medium">Specialization</p>
-                                    <p class="text-gray-400">Software Development & Database</p>
+                                    <p class="font-bold text-lg mb-1 text-white">Specialization</p>
+                                    <p class="text-white font-medium">Software Development & Database Architecture</p>
                                 </div>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="icon-container">
-                                    <span class="text-xl">🌐</span>
+
+                            <div class="flex items-start space-x-5">
+                                <div class="icon-3d flex-shrink-0">
+                                    <i class="fas fa-clock" style="color: var(--accent-tertiary)"></i>
                                 </div>
                                 <div>
-                                    <p class="font-medium">Available For</p>
-                                    <p class="text-gray-400">Freelance & Full-time</p>
+                                    <p class="font-bold text-lg mb-1 text-white">Availability</p>
+                                    <p class="text-white font-medium">Freelance & Full-time</p>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="mt-10 pt-8" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                            <p class="font-bold text-lg mb-6 text-white">
+                                Connect With Me
+                            </p>
+                            <div class="flex gap-4">
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Stack Overflow">
+                                    <i class="fab fa-stack-overflow"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="glass-card p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold mb-6 gradient-text">Send Message</h3>
-                        <form class="space-y-6">
-                            <div>
-                                <input type="text" placeholder="Your Name" 
-                                       class="w-full p-4 bg-transparent border border-purple-500 border-opacity-30 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors">
+                </div>
+
+                <!-- ENHANCED CONTACT FORM -->
+                <div class="lg:col-span-3" data-aos="fade-left">
+                    <div class="ultra-glass-card p-10 rounded-3xl">
+                        <h3 class="text-3xl font-bold mb-8 gradient-text font-['Syne']">
+                            <i class="fas fa-comment-dots mr-3"></i>Send Message
+                        </h3>
+                        
+                        <form class="space-y-6" id="contactForm">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold mb-2 text-white">
+                                        <i class="fas fa-user mr-2"></i>Your Name
+                                    </label>
+                                    <input type="text" name="name" placeholder="John Doe" required class="futuristic-input">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold mb-2 text-white">
+                                        <i class="fas fa-envelope mr-2"></i>Your Email
+                                    </label>
+                                    <input type="email" name="email" placeholder="john@example.com" required class="futuristic-input">
+                                </div>
                             </div>
+
                             <div>
-                                <input type="email" placeholder="Your Email" 
-                                       class="w-full p-4 bg-transparent border border-purple-500 border-opacity-30 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors">
+                                <label class="block text-sm font-bold mb-2 text-white">
+                                    <i class="fas fa-tag mr-2"></i>Subject
+                                </label>
+                                <input type="text" name="subject" placeholder="Project Inquiry" required class="futuristic-input">
                             </div>
+
                             <div>
-                                <textarea placeholder="Your Message" rows="4" 
-                                          class="w-full p-4 bg-transparent border border-purple-500 border-opacity-30 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors resize-none"></textarea>
+                                <label class="block text-sm font-bold mb-2 text-white">
+                                    <i class="fas fa-comment mr-2"></i>Message
+                                </label>
+                                <textarea rows="6" name="message" placeholder="Tell me about your project..." required class="futuristic-input"></textarea>
                             </div>
-                            <button type="submit" class="premium-btn w-full">Send Message</button>
+
+                            <button type="submit" class="futuristic-btn w-full text-lg ripple-effect">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
+
+                            <p class="text-sm text-center" style="color: var(--text-secondary);">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                I typically respond within 24 hours
+                            </p>
                         </form>
                     </div>
                 </div>
@@ -496,86 +947,69 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="glass-card py-8 mt-20 rounded-t-2xl">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="gradient-text text-2xl font-bold mb-4 font-['Playfair_Display']">Rahul Mahata</div>
-            <p class="text-gray-400 mb-6">Software Developer & Database Specialist</p>
-            <div class="flex justify-center space-x-6 mb-6">
-                <div class="icon-container cursor-pointer">
-                    <span class="text-xl">💼</span>
+    <!-- FOOTER -->
+    <footer class="ultra-glass py-12 mt-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <div class="text-4xl font-bold gradient-text mb-4 font-['Syne']">
+                    <span class="text-5xl">&lt;</span>Rahul Mahata<span class="text-5xl">/&gt;</span>
                 </div>
-                <div class="icon-container cursor-pointer">
-                    <span class="text-xl">🐙</span>
+                <p class="text-white text-lg mb-6 font-semibold">Senior Software Developer & Database Specialist</p>
+                
+                <div class="flex justify-center gap-4 mb-8">
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Dev.to">
+                        <i class="fab fa-dev"></i>
+                    </a>
                 </div>
-                <div class="icon-container cursor-pointer">
-                    <span class="text-xl">🔗</span>
-                </div>
-                <div class="icon-container cursor-pointer">
-                    <span class="text-xl">📧</span>
+
+                <div style="border-top: 1px solid rgba(255,255,255,0.1);" class="pt-8 mt-8">
+                    <p class="text-white font-semibold">
+                        <i class="fas fa-code mr-2"></i>
+                        Designed & Developed with <span style="color: var(--accent-tertiary)">❤</span> by Rahul Mahata
+                    </p>
+                    <p class="mt-2 text-sm" style="color: var(--text-secondary)">
+                        &copy; 2024 All rights reserved.
+                    </p>
                 </div>
             </div>
-            <p class="text-gray-500">&copy; 2024 Rahul Mahata. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- SCROLL TO TOP -->
+    <button id="scrollTop" class="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center text-white shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-50 hover:scale-110" style="box-shadow: 0 10px 40px rgba(0, 217, 255, 0.4);">
+        <i class="fas fa-arrow-up text-2xl"></i>
+    </button>
+
+    <!-- PROJECT MODAL -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="absolute top-6 right-6 text-4xl hover:text-white transition-colors" style="color: var(--accent-primary)" onclick="closeProjectModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="text-4xl font-bold gradient-text mb-6 font-['Syne']" id="modalTitle">Project Title</h2>
+            <div id="modalContent" class="text-white"></div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Animate skill bars on scroll
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillFills = entry.target.querySelectorAll('.skill-fill');
-                    skillFills.forEach(fill => {
-                        const width = fill.style.width;
-                        fill.style.width = '0%';
-                        setTimeout(() => {
-                            fill.style.width = width;
-                        }, 200);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('#skills .glass-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            this.reset();
-        });
-
-        // Add hover effects to project cards
-        document.querySelectorAll('#projects .glass-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+        AOS.init({
+            duration: 800,
+            once: false,
+            offset: 100,
+            easing: 'ease-out-cubic'
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f6bb3a3417d91f',t:'MTc1NTI0MDM1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
