@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Rahul Mahata</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #f8fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+        }
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 32px;
+        }
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .item {
+            margin-bottom: 15px;
+        }
+        .item-title {
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+        .item-subtitle {
+            color: var(--primary);
+            font-style: italic;
+        }
+        .item-desc {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        .skills-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        @media print {
+            body { padding: 0; background: white; }
+            .resume-container { box-shadow: none; border: none; width: 100%; max-width: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+            <h1>RAHUL MAHATA</h1>
+            <div class="contact-info">
+                <span>📍 Purulia, West Bengal, India</span>
+                <span>📧 rahulmahata3460@gmail.com</span>
+                <span>🔗 github.com/Rahul3460</span>
+            </div>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            <p>Dedicated and passionate MCA student with a strong foundation in computer science and web development. Committed to building innovative and efficient digital solutions using modern technologies. Quick learner with excellent problem-solving skills.</p>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="item">
+                <div class="item-title">
+                    <span>Master of Computer Applications (MCA)</span>
+                    <span>2023 - Present</span>
+                </div>
+                <div class="item-subtitle">Currently Pursuing</div>
+            </div>
+            <div class="item">
+                <div class="item-title">
+                    <span>Bachelor's Degree (Graduation)</span>
+                    <span>2020 - 2023</span>
+                </div>
+                <div class="item-subtitle">Completed in 2023</div>
+            </div>
+            <div class="item">
+                <div class="item-title">
+                    <span>Higher Secondary Education (12th)</span>
+                    <span>2018 - 2020</span>
+                </div>
+                <div class="item-subtitle">Completed in 2020</div>
+            </div>
+            <div class="item">
+                <div class="item-title">
+                    <span>Secondary Education (10th)</span>
+                    <span>2017 - 2018</span>
+                </div>
+                <div class="item-subtitle">Completed in 2018</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-list">
+                <div><strong>Frontend:</strong> HTML5, CSS3, JavaScript, React</div>
+                <div><strong>Backend:</strong> Node.js, Python</div>
+                <div><strong>Database:</strong> MongoDB, MySQL</div>
+                <div><strong>Tools:</strong> Git, GitHub, VS Code, Figma</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="item">
+                <div class="item-title">E-Commerce Platform</div>
+                <div class="item-desc">A full-stack e-commerce application with secure student authentication and product management.</div>
+            </div>
+            <div class="item">
+                <div class="item-title">Weather Forecast Application</div>
+                <div class="item-desc">Interactive weather app fetching real-time data using OpenWeatherMap API.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Languages</h2>
+            <p>Bengali (Native), Hindi, English</p>
+        </section>
+    </div>
+</body>
+</html>
